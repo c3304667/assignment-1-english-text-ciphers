@@ -70,7 +70,7 @@ void cipher(void){
 };
 
 void decipher(void){
-    char message[1000] = {"hello world"}, ascii_version;
+    char message[1000] = {"vszzc kcfzr"}, ascii_version;        //this with the key 14 makes hello world
     int i, key;
       printf("Enter a message to decrypt: \n");
            
@@ -104,116 +104,53 @@ void decipher(void){
                 }
             }
             printf("Decrypted message: %s", message);
-            return 0;
+            return;
 };
 void subcipher(void){
-    char message[1000] = {"HELLO WORLD"}, ascii_version;
-    int i;
-    char key[] = {"qwertyuiopasdfghjklzxcvbnm"};
-        printf("Message has been hardcoded in as: HELLO WORLD\n");
-            // //reads message relaying to the string above
-           /* printf("\nEnter the key: ");
-            scanf("%s", &key);*/
-            for(i = 0; message[i] != 0; ++i){
-            switch(ascii_version){
-            case('A'):
-            ascii_version = key[0];
-            break;
-            case('B'):
-            ascii_version = key[1];
-            break;
-            case('C'):
-            ascii_version = key[2];
-            break;
-            case('D'):
-            ascii_version = key[3];
-            break;
-            case('E'):
-            ascii_version = key[4];
-            break;
-            case('F'):
-            ascii_version = key[5];
-            break;
-            case('G'):
-            ascii_version = key[6];
-            break;
-            case('H'):
-            ascii_version = key[7];
-            break;
-            case('I'):
-            ascii_version = key[8];
-            break;
-            case('J'):
-            ascii_version = key[9];
-            break;
-            case('K'):
-            ascii_version = key[10];
-            break;
-            case('L'):
-            ascii_version = key[11];
-            break;
-            case('M'):
-            ascii_version = key[12];
-            break;
-            case('N'):
-            ascii_version = key[13];
-            break;
-            case('O'):
-            ascii_version = key[14];
-            break;
-            case('P'):
-            ascii_version = key[15];
-            break;
-            case('Q'):
-            ascii_version = key[16];
-            break;
-            case('R'):
-            ascii_version = key[17];
-            break;
-            case('S'):
-            ascii_version = key[18];
-            break;
-            case('T'):
-            ascii_version = key[19];
-            break;
-            case('U'):
-            ascii_version = key[20];
-            break;
-            case('V'):
-            ascii_version = key[21];
-            break;
-            case('W'):
-            ascii_version = key[22];
-            break;
-            case('X'):
-            ascii_version = key[23];
-            break;
-            case('Y'):
-            ascii_version = key[24];
-            break;
-            case('Z'):
-            ascii_version = key[25];
-            break;
-            default: ascii_version = ' ';
+    char alphabet[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+    char ascii_version;
+    char key[52] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+    char message[1000] = "this should be encoded";
+    int i, j;
+        printf("Message has been hardcoded in as: this should be encoded\n");
+            for(i = 0; message[i] != '\0'; i++){
+                ascii_version = message[i];
+                if((ascii_version >= 'a' && ascii_version <= 'z') || (ascii_version >= 'A' && ascii_version <= 'Z')){
+                    for(j = 0; j < 52; j++){
+                        if(ascii_version == alphabet[j]){
+                            printf("%c", key[j]);
+                        }
+                    };
+                
+                }
+                else{
+                    printf("%c", message[i]);
+                        };
             };
-            message[i] = ascii_version;
-            };
-            printf("Encrypted message: %s", message);
-            return 0;
+            
+  
 };
       
 void subdecipher(void){
-    /*
-          for(i = 0; message[i] != 0; ++i){              //this assigns i to the message letting it incrememnt by 1 until it is NULL'd
-                ascii_version = message[i];                 //this ensures the message of i is in ASCII characters
+    char alphabet[52] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"; 
+    char ascii_version;
+    char key[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char message[1000] = "this should be decoded";
+    int i, j;
+        printf("Message has been hardcoded in as: this should be encoded\n");
+            for(i = 0; message[i] != '\0'; i++){
+                ascii_version = message[i];
+                if((ascii_version >= 'a' && ascii_version <= 'z') || (ascii_version >= 'A' && ascii_version <= 'Z')){
+                    for(j = 0; j < 52; j++){
+                        if(ascii_version == alphabet[j]){
+                            printf("%c", key[j]);
+                        }
+                    };
                 
-                if(ascii_version >= 'a' && ascii_version <= 'z'){           //for the newly assigned ascii_version of the text, if it is above the ascii character "a", and below ascii version of "z":
-                    ascii_version = ascii_version - 'a';
-                    ascii_version = key[ascii_version];
-                message[i] = ascii_version;
                 }
-                printf("encrypted message: %s", message);
+                else{
+                    printf("%c", message[i]);
+                        };
             };
-        
-*/
+
 };
